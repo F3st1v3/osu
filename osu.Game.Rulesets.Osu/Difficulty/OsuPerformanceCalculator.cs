@@ -128,7 +128,7 @@ namespace osu.Game.Rulesets.Osu.Difficulty
                 aimValue *= sliderNerfFactor;
             }
 
-            aimValue *= accuracy;
+            aimValue *= accuracy * 0.8;
             // It is important to consider accuracy difficulty when scaling with accuracy.
             aimValue *= 0.98 + Math.Pow(attributes.OverallDifficulty, 2) / 2500;
 
