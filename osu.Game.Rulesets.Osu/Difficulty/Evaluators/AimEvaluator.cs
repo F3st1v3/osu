@@ -88,7 +88,10 @@ namespace osu.Game.Rulesets.Osu.Difficulty.Evaluators
                     }
 
                     // Penalize wide angles if they're repeated, reducing the penalty as the lastAngle gets more acute.
-                    wideAngleBonus *= angleBonus * (1 - Math.Min(wideAngleBonus, Math.Pow(calcWideAngleBonus(lastAngle), 3)));
+                    // Festive - Try to scale the penalty with distance. That way wide jumps are nerfed less than circle streams.
+                    // CHECKPOINT
+
+                    wideAngleBonus *= angleBonus * (1 - Math.Min(wideAngleBonus, Math.Pow(calcWideAngleBonus(lastAngle), 3)) * Math.Pow(osuCurrObj.LazyJumpDistance, 0.98));
                     // Penalize acute angles if they're repeated, reducing the penalty as the lastLastAngle gets more obtuse.
                     acuteAngleBonus *= 0.5 + 0.5 * (1 - Math.Min(acuteAngleBonus, Math.Pow(calcAcuteAngleBonus(lastLastAngle), 3)));
                 }

@@ -68,9 +68,9 @@ namespace osu.Game.Rulesets.Osu.Difficulty
             double flashlightValue = computeFlashlightValue(score, osuAttributes);
             double totalValue =
                 Math.Pow(
-                    Math.Pow(aimValue, 1.1) +
-                    Math.Pow(speedValue, 1.1) +
-                    Math.Pow(accuracyValue, 1.1) +
+                    Math.Pow(aimValue, 1.165) +
+                    Math.Pow(speedValue, 1.085) +
+                    Math.Pow(accuracyValue, 1.07) +
                     Math.Pow(flashlightValue, 1.1), 1.0 / 1.1
                 ) * multiplier;
 
